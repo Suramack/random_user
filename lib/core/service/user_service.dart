@@ -16,9 +16,9 @@ class UserService {
   }
 
   static Future<RandomUserResponseModel> getRandomUserList(int limit) async {
-    var url = Uri.parse(ApiUrl.url + '?results=$limit');
+    var url = Uri.parse('${ApiUrl.url}?results=$limit');
     var response = await http.get(url);
-       if (response.statusCode == 200) {
+    if (response.statusCode == 200) {
       return randomUserResponseModelFromJson(response.body);
     } else {
       Utils.handleException(response);
